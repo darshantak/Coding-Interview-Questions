@@ -1,7 +1,3 @@
-from os import curdir
-import sys
-from turtle import left
-
 n=int(input())
 heights=list(map(int,input().split()))
 dp=[-1 for i in range(n)]
