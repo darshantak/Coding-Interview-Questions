@@ -28,7 +28,8 @@ def helper1(ind,last_task,dp):
         for i in range(3):
             if i!=last_task:
                 maxi=max(maxi,days[ind][i])
-        return maxi
+        dp[ind][i]=maxi
+        return dp[ind][i]
     if dp[ind][last_task]!=-1:
         return dp[ind][last_task]
     maxi=0
@@ -41,7 +42,7 @@ def helper1(ind,last_task,dp):
     print(dp)
     return dp[ind][last_task]
 
-
+ 
 dp=[[-1 for i in range(4)]]*len(days)
 print(helper1(len(days)-1,3,dp))
 # print(dp)
