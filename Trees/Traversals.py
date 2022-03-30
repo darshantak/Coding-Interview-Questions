@@ -25,15 +25,34 @@ def postorder(node):
     postorder(node.right)
     print(node.data)
 
+def levelorder(root):
+    if root==None:
+        return
+    q=[]
+    final=[]
+    q.append(root)
+    while len(q)!=0:
+        target=[]
+        for i in range(len(q)):
+            target.append(q[0].data)
+            node=q.pop(0)
+            if node.left!=None:
+                q.append(node.left)
+            if node.right!=None:
+                q.append(node.right)
+        final.append(target)
+    print(final)
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
 
-preorder(root)
-inorder(root)
-postorder(root)
+# preorder(root)
+# inorder(root)
+# postorder(root)
+levelorder(root)
+
 #tree looks like
 #        1
 #       / \
