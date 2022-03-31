@@ -7,16 +7,45 @@ class Node:
 def iterativePreorder(root):
     if root==None:
         return
-    q,final=[],[]
-    q.append(root)
-    while len(q)!=0:
-        node=q.pop(-1)
-        final.append(node.data)
+    st,preorder=[],[]
+    st.append(root)
+    while len(st)!=0:
+        node=st.pop(-1)
+        preorder.append(node.data)
         if node.right!=None:
-            q.append(node.right)
+            st.append(node.right)
         if node.left!=None:
-            q.append(node.left)
-    print(final)
+            st.append(node.left)
+    print(preorder)
+
+def iterativeInorder(node):
+    st,inorder=[],[]
+    while True:
+        if node!=None:
+            st.append(node)
+            node=node.left
+        else:
+            if len(st)==0:
+                break
+            node=st.pop(-1)
+            inorder.append(node.data)
+            node=node.right
+
+    print(inorder)
+
+def iterativePostorder(node):
+    st1,st2=[],[]
+    st1.append(node)
+    while len(st1)!=0:
+        node=st1.pop(-1)
+        st2.append(node.data)
+        if node.left!=None:
+            st1.append(node.left)
+        if node.right!=None:
+            st1.append(node.right)
+    
+    print(st2[::-1])
+
 
 
 
@@ -28,4 +57,6 @@ root.right=Node(3)
 root.right.left=Node(6)
 root.right.right=Node(7)
 
-iterativePreorder(root)
+# iterativePreorder(root)
+# iterativeInorder(root)
+iterativePostorder(root)
