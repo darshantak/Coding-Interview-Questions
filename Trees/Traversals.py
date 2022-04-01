@@ -41,6 +41,7 @@ def levelorder(root):
             if node.right!=None:
                 q.append(node.right)
         final.append(target)
+
     print(final)
 root = Node(1)
 root.left = Node(2)

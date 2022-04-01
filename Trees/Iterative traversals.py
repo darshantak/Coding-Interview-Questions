@@ -47,8 +47,6 @@ def iterativePostorder(node):
     print(st2[::-1])
 
 
-
-
 root=Node(1)
 root.left=Node(2)
 root.left.left=Node(4)
