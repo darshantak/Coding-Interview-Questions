@@ -33,6 +33,7 @@ def levelorder(root):
     q.append(root)
     while len(q)!=0:
         target=[]
+        print(q)
         for i in range(len(q)):
             target.append(q[0].data)
             node=q.pop(0)
